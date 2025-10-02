@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NativeSpeak — Documentário</title>
+  <!-- Tailwind via CDN (play CDN suitable for demos) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Highlight.js (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+  <div class="min-h-screen flex flex-col">
+    <header class="bg-gradient-to-r from-indigo-600 to-cyan-500 text-white py-8 shadow">
+      <div class="max-w-4xl mx-auto px-6">
+        <h1 class="text-3xl font-extrabold">NativeSpeak — Documentário</h1>
+        <p class="mt-2 text-indigo-100">Uma visão detalhada do projeto, arquitetura e decisões técnicas.</p>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-4xl mx-auto px-6 py-10">
+      <article class="prose lg:prose-xl">
+        <h2>Resumo</h2>
+        <p>Este documentário descreve o propósito do projeto NativeSpeak, a API Django que suporta o front-end demo. O objetivo é ter um backend leve que substitua o uso do localStorage do front-end por um armazenamento persistente, com endpoints REST para configurações, ferramentas, logs e mais.</p>
+
+        <h2>Arquitetura</h2>
+        <h3>Visão geral</h3>
+        <p>O projeto é uma API construída com Django + Django REST Framework, organizada em um app principal chamado <code>core</code>. Os modelos centrais incluem:</p>
+        <ul>
+          <li><strong>Setting:</strong> chaves e valores JSON para configurações da aplicação.</li>
+          <li><strong>Tool:</strong> ferramentas configuráveis que o front-end pode listar e usar.</li>
+          <li><strong>LogEntry:</strong> entradas de log estruturadas.</li>
+          <li><strong>Achievement:</strong> conquistas do usuário.</li>
+          <li><strong>Notification:</strong> notificações que podem ser criadas pelo backend.</li>
+          <li><strong>Presence:</strong> presença online de usuários.</li>
+          <li><strong>TodoItem:</strong> itens de tarefa simples.</li>
+          <li><strong>Lesson:</strong> lições com slug e conteúdo JSON.</li>
+          <li><strong>UIState:</strong> estados da interface armazenados por chave.</li>
+        </ul>
+
+        <h3>Fluxo de dados</h3>
+        <p>O front-end realiza requisições para os endpoints REST expostos por viewsets e viewsets customizados. As operações CRUD são mapeadas diretamente para modelos Django e serializadores DRF.</p>
+
+        <h2>Decisões técnicas</h2>
+        <h3>Por que Django + DRF?</h3>
+        <p>Django fornece um ORM maduro, sistema de administração e convenções que aceleram o desenvolvimento. Django REST Framework abstrai rapidamente a exposição de APIs REST com autenticação, permissões e serialização.</p>
+
+        <h3>Admin moderno com Unfold</h3>
+        <p>O projeto está integrado ao tema <code>django-unfold</code>, um tema moderno para o admin Django baseado em Tailwind. Isso melhora a usabilidade e permite uso de componentes prontos. O settings.py foi atualizado para ativar o Unfold e fornecer algumas opções iniciais.</p>
+
+        <h2>Como rodar</h2>
+        <p>Passos curtos (PowerShell):</p>
+        <pre><code class="language-bash">py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt  # ou pip install django djangorestframework django-cors-headers django-unfold django-crispy-forms
+py -3 manage.py migrate
+py -3 manage.py runserver</code></pre>
+
+        <h2>Trechos de código</h2>
+        <h3>Model `Setting`</h3>
+        <pre><code class="language-python">from django.db import models
+
+class Setting(models.Model):
+    key = models.CharField(max_length=200, unique=True)
+    value = models.JSONField()
+
+    def __str__(self):
+        return self.key</code></pre>
+
+        <h3>Exemplo de chamada ao endpoint de settings (fetch)</h3>
+        <pre><code class="language-javascript">fetch('/api/settings/')
+  .then(r => r.json())
+  .then(data =&gt; console.log(data))
+  .catch(err =&gt; console.error(err));</code></pre>
+
+        <h2>Personalização do Admin</h2>
+        <p>O admin já registra todos os modelos na app <code>core</code> usando classes baseadas em Unfold `ModelAdmin`. Você pode personalizar cada admin para ajustar:</p>
+        <ul>
+          <li>Campos mostrados na listagem (<code>list_display</code>).</li>
+          <li>Filtros (<code>list_filter</code>).</li>
+          <li>Campos pesquisáveis (<code>search_fields</code>).</li>
+        </ul>
+
+        <h2>Roadmap de melhorias</h2>
+        <ol>
+          <li>Adicionar Tailwind build pipeline (para personalização avançada) usando Node/Tailwind ou `django-tailwind`.</li>
+          <li>Adicionar widgets Unfold/Alpine.js para experiências interativas no admin.</li>
+          <li>Adicionar testes automatizados e CI para garantir estabilidade.</li>
+        </ol>
+
+        <h2>Licença e contribuições</h2>
+        <p>O repositório contém um arquivo LICENSE (MIT). Contribuições são bem-vindas; prefira PRs pequenos e focados.</p>
+
+        <footer class="mt-12 text-sm text-gray-500">
+          <p>Gerado automaticamente pelo assistente. Para customizações visuais avançadas, inicie a pipeline do Tailwind e me peça para integrar.</p>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="bg-white border-t py-6">
+      <div class="max-w-4xl mx-auto px-6 text-sm text-gray-500">© NativeSpeak</div>
+    </footer>
+  </div>
+</body>
+</html>

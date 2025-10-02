@@ -1,0 +1,22 @@
+{% extends "admin/base_site.html" %}
+{% load i18n unfold %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto p-6">
+  <h1 class="text-2xl font-bold mb-4">Painel NativeSpeak (Custom)</h1>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="col-span-1 bg-white p-4 rounded shadow">
+      <h2 class="font-semibold">Status</h2>
+      <p class="text-sm text-gray-600 mt-2">Serviço rodando. Acesse os modelos listados no menu do admin.</p>
+    </div>
+    <div class="col-span-2 bg-white p-4 rounded shadow">
+      <h2 class="font-semibold">Resumo</h2>
+      <ul class="list-disc list-inside mt-2 text-sm text-gray-700">
+        <li>Endpoints: /api/settings/, /api/tools/, /api/logs/ ...</li>
+        <li>Admin com tema Unfold e campos básicos configurados.</li>
+        <li>Para personalizar estilos, configure Tailwind build pipeline.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
