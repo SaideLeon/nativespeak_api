@@ -1,0 +1,270 @@
+{
+  "results": [
+    {
+      "Test": "Home Page",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "API Root",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Register Test User",
+      "Status": "PASS",
+      "StatusCode": 0,
+      "Method": "POST",
+      "Path": "/api/auth/register/",
+      "Authenticated": false
+    },
+    {
+      "Test": "List Settings",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/settings/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Setting",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "POST",
+      "Path": "/api/settings/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": true
+    },
+    {
+      "Test": "Upsert Setting",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "PUT",
+      "Path": "/api/settings/upsert/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": true
+    },
+    {
+      "Test": "Query Setting by Key",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/settings/?key=test.setting",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "List Tools",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/tools/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Tool",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "POST",
+      "Path": "/api/tools/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Logs",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/logs/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Log Entry",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "POST",
+      "Path": "/api/logs/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Achievements",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/achievements/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Achievement",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "POST",
+      "Path": "/api/achievements/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Notifications",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/notifications/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Notification",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "POST",
+      "Path": "/api/notifications/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Presence",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/presence/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Presence",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "POST",
+      "Path": "/api/presence/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Todos",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/todos/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Todo",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "POST",
+      "Path": "/api/todos/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Lessons",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/lessons/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "List UI States",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/ui-state/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create UI State",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "POST",
+      "Path": "/api/ui-state/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": true
+    },
+    {
+      "Test": "Upsert UI State",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "PUT",
+      "Path": "/api/ui-state/upsert/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": true
+    },
+    {
+      "Test": "Auth Register Info (GET)",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/auth/register/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Auth Login Info (GET)",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/auth/login/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Token Obtain (Bad Credentials)",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "POST",
+      "Path": "/api/token/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "OpenAPI Schema",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/schema/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "API Docs",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/api/docs/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    },
+    {
+      "Test": "Admin Login Page",
+      "Status": "FAIL",
+      "StatusCode": 0,
+      "Method": "GET",
+      "Path": "/admin/",
+      "Error": "Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. (127.0.0.1:8000)",
+      "Authenticated": false
+    }
+  ],
+  "timestamp": "2025-10-02 13:32:36",
+  "passed": 1,
+  "baseUrl": "http://127.0.0.1:8000",
+  "authTokenObtained": false,
+  "failed": 28,
+  "totalTests": 29
+}

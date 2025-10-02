@@ -3,9 +3,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
-from rest_framework.permissions import AllowAny
-from rest_framework.parsers import JSONParser
-from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import AllowAny 
+from rest_framework.parsers import JSONParser 
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import Setting, Tool, LogEntry, Achievement, Notification, Presence, TodoItem, Lesson, UIState
 from .serializers import (
@@ -140,6 +139,14 @@ class LoginAPIView(APIView):
 
 class AuthViewSet(viewsets.ViewSet):
     """Expose register/login under the router so they appear in the API root."""
+
+    def get_permissions(self):
+        # Allow unauthenticated users to call register and login so clients can
+        # create accounts and obtain tokens. Other actions should use the
+        # default IsAuthenticatedOrReadOnly behavior configured in settings.
+        if getattr(self, 'action', None) in ('register', 'login'):
+            return [AllowAny()]
+        return []
 
     # Provide serializers for the action request bodies so the automatic schema
     # generation can include request body shapes and enable the interactive

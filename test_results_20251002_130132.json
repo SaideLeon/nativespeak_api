@@ -1,0 +1,218 @@
+[
+  {
+    "Test": "Home Page",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/"
+  },
+  {
+    "Test": "API Root",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/"
+  },
+  {
+    "Test": "List Settings",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/settings/"
+  },
+  {
+    "Test": "Create Setting",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "POST",
+    "Path": "/api/settings/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "Upsert Setting",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "PUT",
+    "Path": "/api/settings/upsert/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "Query Setting by Key",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/settings/?key=test.setting"
+  },
+  {
+    "Test": "List Tools",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/tools/"
+  },
+  {
+    "Test": "Create Tool",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "POST",
+    "Path": "/api/tools/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "List Logs",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/logs/"
+  },
+  {
+    "Test": "Create Log Entry",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "POST",
+    "Path": "/api/logs/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "List Achievements",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/achievements/"
+  },
+  {
+    "Test": "Create Achievement",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "POST",
+    "Path": "/api/achievements/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "List Notifications",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/notifications/"
+  },
+  {
+    "Test": "Create Notification",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "POST",
+    "Path": "/api/notifications/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "List Presence",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/presence/"
+  },
+  {
+    "Test": "Create Presence",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "POST",
+    "Path": "/api/presence/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "List Todos",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/todos/"
+  },
+  {
+    "Test": "Create Todo",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "POST",
+    "Path": "/api/todos/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "List Lessons",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/lessons/"
+  },
+  {
+    "Test": "List UI States",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/ui-state/"
+  },
+  {
+    "Test": "Create UI State",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "POST",
+    "Path": "/api/ui-state/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "Upsert UI State",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "PUT",
+    "Path": "/api/ui-state/upsert/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "Auth Register (GET)",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/auth/register/"
+  },
+  {
+    "Test": "Auth Login (GET)",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/api/auth/login/"
+  },
+  {
+    "Test": "Register New User",
+    "Status": "FAIL",
+    "StatusCode": 401,
+    "Method": "POST",
+    "Path": "/api/auth/register/",
+    "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+  },
+  {
+    "Test": "Token Obtain",
+    "Status": "PASS",
+    "StatusCode": 401,
+    "Method": "POST",
+    "Path": "/api/token/"
+  },
+  {
+    "Test": "OpenAPI Schema",
+    "Status": "FAIL",
+    "StatusCode": 500,
+    "Method": "GET",
+    "Path": "/api/schema/",
+    "Error": "Response status code does not indicate success: 500 (Internal Server Error)."
+  },
+  {
+    "Test": "API Docs",
+    "Status": "FAIL",
+    "StatusCode": 500,
+    "Method": "GET",
+    "Path": "/api/docs/",
+    "Error": "Response status code does not indicate success: 500 (Internal Server Error)."
+  },
+  {
+    "Test": "Admin Login Page",
+    "Status": "PASS",
+    "StatusCode": 200,
+    "Method": "GET",
+    "Path": "/admin/"
+  }
+]
