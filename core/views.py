@@ -158,16 +158,8 @@ class AuthViewSet(viewsets.ViewSet):
             return AuthLoginSerializer
         return None
 
-    @action(detail=False, methods=['get', 'post'])
+    @action(detail=False, methods=['post'])
     def register(self, request):
-        # Support GET for discoverability: return a short description of the
-        # expected POST payload so clients browsing the API root don't get a
-        # 405 when accidentally visiting this URL in a browser.
-        if request.method == 'GET':
-            return Response({
-                'description': 'Register a new user. POST JSON: {email, password, first_name?, last_name?}',
-                'methods': ['POST']
-            })
         # delegate to same logic used in RegisterAPIView
         email = request.data.get('email')
         password = request.data.get('password')
@@ -181,13 +173,8 @@ class AuthViewSet(viewsets.ViewSet):
                                         first_name=first_name, last_name=last_name)
         return Response({'email': user.email, 'first_name': user.first_name, 'last_name': user.last_name}, status=201)
 
-    @action(detail=False, methods=['get', 'post'])
+    @action(detail=False, methods=['post'])
     def login(self, request):
-        if request.method == 'GET':
-            return Response({
-                'description': 'Login and obtain JWT tokens. POST JSON: {email, password}',
-                'methods': ['POST']
-            })
         email = request.data.get('email')
         password = request.data.get('password')
         if not email or not password:
@@ -200,4 +187,18 @@ class AuthViewSet(viewsets.ViewSet):
             return Response({'detail': 'invalid credentials'}, status=401)
         refresh = RefreshToken.for_user(user)
         return Response({'access': str(refresh.access_token), 'refresh': str(refresh)})
+
+    @action(detail=False, methods=['get'], url_path='register-info')
+    def register_info(self, request):
+        return Response({
+            'description': 'Register a new user. POST JSON: {email, password, first_name?, last_name?}',
+            'methods': ['POST']
+        })
+
+    @action(detail=False, methods=['get'], url_path='login-info')
+    def login_info(self, request):
+        return Response({
+            'description': 'Login and obtain JWT tokens. POST JSON: {email, password}',
+            'methods': ['POST']
+        })
 

@@ -340,8 +340,9 @@ Test-Endpoint -Name "Upsert UI State" -Method "PUT" -Path "/api/ui-state/upsert/
 
 # Test 12: Auth endpoints (informational)
 Write-TestHeader "Testing Auth Endpoints (Informational)"
-Test-Endpoint -Name "Auth Register Info (GET)" -Method "GET" -Path "/api/auth/register/" | Out-Null
-Test-Endpoint -Name "Auth Login Info (GET)" -Method "GET" -Path "/api/auth/login/" | Out-Null
+# The informational GET endpoints were moved to unique paths to avoid duplicated operationIds
+Test-Endpoint -Name "Auth Register Info (GET)" -Method "GET" -Path "/api/auth/register-info/" | Out-Null
+Test-Endpoint -Name "Auth Login Info (GET)" -Method "GET" -Path "/api/auth/login-info/" | Out-Null
 
 # Test 13: JWT Token endpoints
 Write-TestHeader "Testing JWT Token Endpoints"

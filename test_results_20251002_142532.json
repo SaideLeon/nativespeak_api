@@ -1,0 +1,243 @@
+{
+  "results": [
+    {
+      "Test": "Home Page",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/",
+      "Authenticated": false
+    },
+    {
+      "Test": "API Root",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Register Test User",
+      "Status": "PASS",
+      "StatusCode": 201,
+      "Method": "POST",
+      "Path": "/api/auth/register/",
+      "Authenticated": false
+    },
+    {
+      "Test": "List Settings",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/settings/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Setting",
+      "Status": "PASS",
+      "StatusCode": 201,
+      "Method": "POST",
+      "Path": "/api/settings/",
+      "Authenticated": true
+    },
+    {
+      "Test": "Upsert Setting",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "PUT",
+      "Path": "/api/settings/upsert/",
+      "Authenticated": true
+    },
+    {
+      "Test": "Query Setting by Key",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/settings/?key=test.setting",
+      "Authenticated": false
+    },
+    {
+      "Test": "List Tools",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/tools/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Tool",
+      "Status": "PASS",
+      "StatusCode": 201,
+      "Method": "POST",
+      "Path": "/api/tools/",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Logs",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/logs/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Log Entry",
+      "Status": "PASS",
+      "StatusCode": 201,
+      "Method": "POST",
+      "Path": "/api/logs/",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Achievements",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/achievements/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Achievement",
+      "Status": "PASS",
+      "StatusCode": 201,
+      "Method": "POST",
+      "Path": "/api/achievements/",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Notifications",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/notifications/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Notification",
+      "Status": "PASS",
+      "StatusCode": 201,
+      "Method": "POST",
+      "Path": "/api/notifications/",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Presence",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/presence/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Presence",
+      "Status": "PASS",
+      "StatusCode": 201,
+      "Method": "POST",
+      "Path": "/api/presence/",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Todos",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/todos/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create Todo",
+      "Status": "PASS",
+      "StatusCode": 201,
+      "Method": "POST",
+      "Path": "/api/todos/",
+      "Authenticated": true
+    },
+    {
+      "Test": "List Lessons",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/lessons/",
+      "Authenticated": false
+    },
+    {
+      "Test": "List UI States",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/ui-state/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Create UI State",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "POST",
+      "Path": "/api/ui-state/",
+      "Authenticated": true
+    },
+    {
+      "Test": "Upsert UI State",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "PUT",
+      "Path": "/api/ui-state/upsert/",
+      "Authenticated": true
+    },
+    {
+      "Test": "Auth Register Info (GET)",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/auth/register-info/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Auth Login Info (GET)",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/auth/login-info/",
+      "Authenticated": false
+    },
+    {
+      "Test": "Token Obtain (Bad Credentials)",
+      "Status": "PASS",
+      "StatusCode": 401,
+      "Method": "POST",
+      "Path": "/api/token/",
+      "Authenticated": false
+    },
+    {
+      "Test": "OpenAPI Schema",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/api/schema/",
+      "Authenticated": false
+    },
+    {
+      "Test": "API Docs",
+      "Status": "FAIL",
+      "StatusCode": 500,
+      "Method": "GET",
+      "Path": "/api/docs/",
+      "Error": "Response status code does not indicate success: 500 (Internal Server Error).",
+      "Authenticated": false
+    },
+    {
+      "Test": "Admin Login Page",
+      "Status": "PASS",
+      "StatusCode": 200,
+      "Method": "GET",
+      "Path": "/admin/",
+      "Authenticated": false
+    }
+  ],
+  "totalTests": 29,
+  "passed": 28,
+  "timestamp": "2025-10-02 14:25:32",
+  "failed": 1,
+  "authTokenObtained": true,
+  "baseUrl": "http://127.0.0.1:8000"
+}

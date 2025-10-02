@@ -26,7 +26,10 @@ urlpatterns = [
     path('api/', include(router.urls)),
     # OpenAPI schema and a simple docs UI (DRF's built-in views)
     path('api/schema/', get_schema_view(title='NativeSpeak API', description='API for NativeSpeak', version='1.0.0'), name='openapi-schema'),
-    path('api/docs/', TemplateView.as_view(template_name='rest_framework/docs.html', extra_context={'schema_url':'openapi-schema'}), name='api_docs'),
+    # Use the DRF docs index template (older DRF versions name this file index.html
+    # under rest_framework/docs). Using the explicit index path avoids TemplateDoesNotExist
+    # errors when rendering the docs UI.
+    path('api/docs/', TemplateView.as_view(template_name='rest_framework/docs/index.html', extra_context={'schema_url':'openapi-schema'}), name='api_docs'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),

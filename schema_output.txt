@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "C:\Users\Rogerio\Desktop\Modulos\NativeSpeak\nativespeak_api\scripts\generate_schema.py", line 10, in <module>
+ERROR
+    schema = gen.get_schema(request=None, public=True)
+  File "C:\Users\Rogerio\Desktop\Modulos\NativeSpeak\nativespeak_api\.venv\Lib\site-packages\rest_framework\schemas\openapi.py", line 78, in get_schema
+    operation = view.schema.get_operation(path, method)
+  File "C:\Users\Rogerio\Desktop\Modulos\NativeSpeak\nativespeak_api\.venv\Lib\site-packages\rest_framework\schemas\openapi.py", line 144, in get_operation
+    operation['operationId'] = self.get_operation_id(path, method)
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Rogerio\Desktop\Modulos\NativeSpeak\nativespeak_api\.venv\Lib\site-packages\rest_framework\schemas\openapi.py", line 265, in get_operation_id
+    name = self.get_operation_id_base(path, method, action)
+  File "C:\Users\Rogerio\Desktop\Modulos\NativeSpeak\nativespeak_api\.venv\Lib\site-packages\rest_framework\schemas\openapi.py", line 248, in get_operation_id_base
+    assert inflection, '`inflection` must be installed for OpenAPI schema support.'
+           ^^^^^^^^^^
+AssertionError: `inflection` must be installed for OpenAPI schema support.
