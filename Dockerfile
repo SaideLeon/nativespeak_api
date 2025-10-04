@@ -26,7 +26,7 @@ ENV STATIC_ROOT=/vol/web/static
 RUN useradd --create-home --shell /bin/bash nativespeak || true
 USER nativespeak
 
-EXPOSE 8000
+EXPOSE 4000
 
 # Run Gunicorn as default. Adjust worker count as needed for your environment.
-CMD ["gunicorn", "nativespeak_api.wsgi:application", "--bind", "0.0.0.0:8010", "--workers", "3"]
+CMD ["gunicorn", "nativespeak_api.wsgi:application", "--bind", "0.0.0.0:4000", "--workers", "3"]
