@@ -157,4 +157,5 @@ SWAGGER_SETTINGS = {
         }
     },
     'USE_SESSION_AUTH': False,
+    'schemes': ['http', 'https'],
 }
