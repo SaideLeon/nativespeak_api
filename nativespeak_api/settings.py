@@ -119,6 +119,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8001-firebase-nativespeak-1759734486947.cluster-fbfjltn375c6wqxlhoehbz44sk.cloudworkstations.dev',
+    'https://nativespeak.cognick.qzz.io',
 ]
 
 # DRF
