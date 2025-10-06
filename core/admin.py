@@ -10,10 +10,19 @@ class GoalAdmin(ModelAdmin):
 
 @admin.register(UserProfile)
 class UserProfileAdmin(ModelAdmin):
-    list_display = ('user', 'credits', 'completed_lessons', 'total_conversation_time', 'theme')
+    list_display = ('user', 'wants_to_be_admin', 'credits', 'completed_lessons', 'total_conversation_time', 'theme')
     search_fields = ('user__username', 'user__email', 'theme')
-    list_filter = ('theme',)
+    list_filter = ('wants_to_be_admin', 'theme',)
     ordering = ('user__username',)
+    actions = ['make_admin']
+
+    @admin.action(description='Approve selected users as admins')
+    def make_admin(self, request, queryset):
+        for profile in queryset:
+            profile.user.is_staff = True
+            profile.user.save()
+            profile.wants_to_be_admin = False
+            profile.save()
 
 
 @admin.register(LessonProgress)

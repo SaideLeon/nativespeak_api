@@ -23,6 +23,7 @@ class UserProfile(models.Model):
     credits = models.PositiveIntegerField(default=0)
     avatar = models.CharField(max_length=50, blank=True, null=True)
     theme = models.CharField(max_length=30, default='default')
+    wants_to_be_admin = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Perfil de {self.user.username}"

@@ -4,7 +4,7 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from core.views import LoginView, KnowView, IndexView
+from core.views import LoginView, KnowView, IndexView, AdminRequestView, AdminRequestSuccessView
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -29,4 +29,6 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('know/', KnowView.as_view(), name='know'),
+    path('request-admin-access/', AdminRequestView.as_view(), name='admin_request'),
+    path('request-admin-access/success/', AdminRequestSuccessView.as_view(), name='admin_request_success'),
 ]

@@ -13,6 +13,9 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from django.views.generic import TemplateView
+from django.views import generic
+from django.urls import reverse_lazy
+from .forms import AdminRequestForm
 
 class LoginView(TokenObtainPairView):
     @swagger_auto_schema(
@@ -142,4 +145,18 @@ class KnowView(TemplateView):
 
 class IndexView(TemplateView):
     template_name = "index.html"
+
+
+class AdminRequestView(generic.CreateView):
+    form_class = AdminRequestForm
+    template_name = 'admin_request.html'
+    success_url = reverse_lazy('admin_request_success')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        UserProfile.objects.create(user=self.object, wants_to_be_admin=True)
+        return response
+
+class AdminRequestSuccessView(generic.TemplateView):
+    template_name = 'admin_request_success.html'
 
