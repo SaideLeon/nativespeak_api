@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Production settings
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
-ALLOWED_HOSTS = ['129.146.70.15', '127.0.0.1', 'localhost','8001-firebase-nativespeak-1759734486947.cluster-fbfjltn375c6wqxlhoehbz44sk.cloudworkstations.dev']
+ALLOWED_HOSTS = ['129.146.70.15', '127.0.0.1', 'localhost','8001-firebase-nativespeak-1759734486947.cluster-fbfjltn375c6wqxlhoehbz44sk.cloudworkstations.dev', 'nativespeak.cognick.qzz.io']
 
 INSTALLED_APPS = [
     'unfold',
