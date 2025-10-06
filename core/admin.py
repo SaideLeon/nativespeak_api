@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import Goal, UserProfile, LessonProgress, Achievement, LocalConfig
 from unfold.admin import ModelAdmin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.models import User
+
 
 @admin.register(Goal)
 class GoalAdmin(ModelAdmin):
@@ -12,7 +15,7 @@ class GoalAdmin(ModelAdmin):
 class UserProfileAdmin(ModelAdmin):
     list_display = ('user', 'wants_to_be_admin', 'credits', 'completed_lessons', 'total_conversation_time', 'theme')
     search_fields = ('user__username', 'user__email', 'theme')
-    list_filter = ('wants_to_be_admin', 'theme',)
+    list_filter = ('wants_to_be_admin', 'theme', 'user__is_staff')
     ordering = ('user__username',)
     actions = ['make_admin']
 
@@ -23,6 +26,13 @@ class UserProfileAdmin(ModelAdmin):
             profile.user.save()
             profile.wants_to_be_admin = False
             profile.save()
+
+
+class UserAdmin(BaseUserAdmin, ModelAdmin):
+    list_filter = BaseUserAdmin.list_filter + ('is_staff',)
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
 
 
 @admin.register(LessonProgress)

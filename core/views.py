@@ -154,7 +154,8 @@ class AdminRequestView(generic.CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        UserProfile.objects.create(user=self.object, wants_to_be_admin=True)
+        self.object.profile.wants_to_be_admin = True
+        self.object.profile.save()
         return response
 
 class AdminRequestSuccessView(generic.TemplateView):
