@@ -31,4 +31,5 @@ urlpatterns = [
     path('know/', KnowView.as_view(), name='know'),
     path('request-admin-access/', AdminRequestView.as_view(), name='admin_request'),
     path('request-admin-access/success/', AdminRequestSuccessView.as_view(), name='admin_request_success'),
+    path('api/', include('courses.api_urls')),
 ]

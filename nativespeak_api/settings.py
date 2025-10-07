@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     # Local app
     'core',
+    'courses',
 ]
 
 MIDDLEWARE = [
