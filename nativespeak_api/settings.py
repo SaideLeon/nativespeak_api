@@ -116,6 +116,9 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://nativespeak.cognick.qzz.io',
     'https://nativespeak.cognick.qzz.io',
+    'https://nativespeak.live',
+    'https://nativespeak.app',
+    'https://nativespeak.vercel.app',
 ]
 CORS_ALLOW_CREDENTIALS = True
 
