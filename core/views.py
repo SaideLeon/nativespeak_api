@@ -3,7 +3,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.auth.models import User
 from .models import Goal, UserProfile, LessonProgress, Achievement, LocalConfig
 from .serializers import (
-    RegisterSerializer, UserSerializer, GoalSerializer,
+    MyTokenObtainPairSerializer, RegisterSerializer, UserSerializer, GoalSerializer,
     UserProfileSerializer,
     LessonProgressSerializer,
     AchievementSerializer,
@@ -17,21 +17,8 @@ from django.views import generic
 from django.urls import reverse_lazy
 from .forms import AdminRequestForm
 
-class LoginView(TokenObtainPairView):
-    @swagger_auto_schema(
-        responses={200: openapi.Response(
-            description="Access and refresh tokens",
-            schema=openapi.Schema(
-                type=openapi.TYPE_OBJECT,
-                properties={
-                    'refresh': openapi.Schema(type=openapi.TYPE_STRING),
-                    'access': openapi.Schema(type=openapi.TYPE_STRING),
-                }
-            )
-        )}
-    )
-    def post(self, request, *args, **kwargs):
-        return super().post(request, *args, **kwargs)
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()

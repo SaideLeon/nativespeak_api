@@ -1,25 +1,58 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import Goal, UserProfile, LessonProgress, Achievement, LocalConfig
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'] = serializers.EmailField()
+        self.fields['username'].required = False
+
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        token['username'] = user.username
+        return token
+
+    def validate(self, attrs):
+        attrs['username'] = User.objects.get(email=attrs['email']).username
+        data = super().validate(attrs)
+        return data
+
 
 class RegisterSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
+    password = serializers.CharField(write_only=True, required=True)
+    password2 = serializers.CharField(write_only=True, required=True)
+    terms = serializers.BooleanField(write_only=True, required=True)
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'password']
+        fields = ('id', 'first_name', 'last_name', 'email', 'password', 'password2', 'terms')
+
+    def validate(self, attrs):
+        if attrs['password'] != attrs['password2']:
+            raise serializers.ValidationError({"password": "Passwords must match."})
+        if not attrs['terms']:
+            raise serializers.ValidationError({"terms": "You must accept the terms of service."})
+        return attrs
 
     def create(self, validated_data):
-        return User.objects.create_user(
-            username=validated_data['username'],
-            email=validated_data.get('email', ''),
+        user = User.objects.create_user(
+            username=validated_data['email'],
+            email=validated_data['email'],
+            first_name=validated_data['first_name'],
+            last_name=validated_data['last_name'],
             password=validated_data['password']
         )
+        return user
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name']
 
 class GoalSerializer(serializers.ModelSerializer):
     class Meta:

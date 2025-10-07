@@ -4,7 +4,7 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from core.views import LoginView, KnowView, IndexView, AdminRequestView, AdminRequestSuccessView
+from core.views import MyTokenObtainPairView, KnowView, IndexView, AdminRequestView, AdminRequestSuccessView
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -23,7 +23,7 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path('api/', include('core.urls')),
-    path('api/login/', LoginView.as_view(), name='token_obtain_pair'),
+    path('api/login/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
